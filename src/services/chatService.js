@@ -1,4 +1,4 @@
-const baseUrl = '/api/chats';
+const baseUrl = 'https://rent-a-room-app.onrender.com/api/chats';
 
 async function getChats() {
     return fetch(baseUrl)
