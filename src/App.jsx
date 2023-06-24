@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <nav>
-        <figure><Link to="/"><img src="./src/assets/logo.png" alt="" /></Link></figure>
+        <figure><Link to="/">Rent A Room</Link></figure>
         <ul>
           <li>Land Owner's Login</li>
           <li><Link to='/'>Tenant's Login</Link></li>
