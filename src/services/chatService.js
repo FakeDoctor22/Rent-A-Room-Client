@@ -1,29 +1,23 @@
-const baseUrl = 'https://rent-a-room-app.onrender.com/api/chats';
+import axios from "axios";
+
+const baseUrl = '/api/chats';
 
 async function getChats() {
-    return fetch(baseUrl)
-    .then((res) => res.json())
-    .then((data) => data);
-};
+    return axios.get(baseUrl)
+        .then((res) => res.data)
+        .catch((error) => {
+        throw error;
+    });
+}
 
 async function createChat(chats) {
-    return fetch(baseUrl, {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(chats),
-    })
-        .then((res) => res.json())
-        .then((data) => data);
+    return axios.post(baseUrl, chats).then((res) => res.data);
 };
 
 async function deleteChat(id) {
-    return fetch(`${baseUrl}/${id}`, {
-        method: 'DELETE',
-    })
-        .then((res) => res.status);
+    return axios.delete(`${baseUrl}/${id}`).then((res) => res.status);
 }
+
 
 export default {
     getChats,
